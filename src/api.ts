@@ -1,6 +1,8 @@
 // Thin typed wrappers around the FastAPI backend (proxied under /api by Vite).
 // En local, le proxy de Vite sert /api. En production, VITE_API_URL contient l'adresse publique du backend.
-const API_BASE = import.meta.env.VITE_API_URL ?? '/api'
+// En local, le proxy de Vite sert /api. En production, VITE_API_URL contient l'adresse publique du backend.
+// Les "/" finaux sont retirés : une URL saisie avec un "/" à la fin ne casse plus les appels.
+const API_BASE = (import.meta.env.VITE_API_URL ?? '/api').replace(/\/+$/, '')
 export type Role = 'user' | 'assistant' | 'system-notification' | 'quiz'
 
 export interface ConversationSummary {
