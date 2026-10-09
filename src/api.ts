@@ -1,5 +1,6 @@
 // Thin typed wrappers around the FastAPI backend (proxied under /api by Vite).
-
+// En local, le proxy de Vite sert /api. En production, VITE_API_URL contient l'adresse publique du backend.
+const API_BASE = import.meta.env.VITE_API_URL ?? '/api'
 export type Role = 'user' | 'assistant' | 'system-notification' | 'quiz'
 
 export interface ConversationSummary {
@@ -32,7 +33,7 @@ export type ChatEvent =
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   let response: Response
   try {
-    response = await fetch(`/api${path}`, {
+    response = await fetch(`${API_BASE}${path}`, {
       ...init,
       headers: { 'Content-Type': 'application/json', ...init?.headers },
     })
@@ -81,7 +82,7 @@ export async function streamChat(
 ): Promise<void> {
   let response: Response
   try {
-    response = await fetch('/api/chat', {
+    response = await fetch('${API_BASE}/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
