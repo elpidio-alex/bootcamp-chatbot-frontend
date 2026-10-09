@@ -192,8 +192,72 @@
   font-size: 0.8rem;
 }
 
-.bubble.typing {
+.typing {
   color: var(--muted);
+}
+
+/* Quiz bubble: same markdown spacing as the assistant, but visibly different */
+.bubble.quiz {
+  align-self: flex-start;
+  white-space: normal;
+  background: var(--quiz-bg);
+  border-left: 4px solid var(--quiz-border);
+  border-bottom-left-radius: 4px;
+}
+
+.bubble.quiz > :nth-child(2) {
+  margin-top: 0;
+}
+
+.bubble.quiz > :last-child {
+  margin-bottom: 0;
+}
+
+.bubble-label {
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--quiz-border);
+}
+
+.bubble-meta {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.toolbar {
+  padding: 8px max(16px, calc((100% - 760px) / 2)) 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.toolbar select {
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+}
+
+.composer button.stop {
+  background: var(--error-text);
+  color: var(--bg);
+}
+
+.error-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error button.retry {
+  padding: 4px 12px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .composer {

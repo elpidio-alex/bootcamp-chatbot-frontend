@@ -12,6 +12,9 @@
   --error-bg: #fdecec;
   --error-text: #a61b1b;
 
+  --quiz-bg: #fff7e0;
+  --quiz-border: #f0a500;
+
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
   color: var(--text);
@@ -32,6 +35,8 @@
     --bubble-assistant: #262930;
     --error-bg: #3b1d1f;
     --error-text: #f5a5a5;
+    --quiz-bg: #3a3220;
+    --quiz-border: #d9a52b;
   }
 }
 
